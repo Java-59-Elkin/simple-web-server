@@ -15,12 +15,8 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    if (req.url === '/users') {
-        res.write('<h1>Hello User</h1>');
-    }
-    if (req.url === '/group') {
-        res.write('<h1>Hello Group</h1>');
-    }
+    const name = req.url.split('=')[1];
+        res.write(`<h1>Hello ${name}</h1>`);
     res.end();
 });
 
